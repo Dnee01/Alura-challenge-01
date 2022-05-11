@@ -1,0 +1,84 @@
+/* Reglas de encriptación:
+"e" es convertida para "enter"
+"i" es convertido para "imes"
+"a" es convertida para "ai"
+"o" es convertida para "ober"
+"u" es convertido para "ufat"
+Solo letras minúsculas
+No se permite la acentuación de palabras
+*/
+
+/* Reglas de desencriptación:
+"enter" es convertido para "e"
+"imes" es convertido para "i"
+"ai" es convertido para "a"
+"ober" es convertido para "o"
+"ufat" es convertido para "u"
+Solo letras minúsculas
+No se permite la acentuación de palabras   
+*/
+
+var  inputMensajeAEncriptar  =  documento . querySelector ( "#input-texto" ) ;
+
+var  botonEncriptar  =  documento . querySelector ( "#btn-encriptar" ) ;
+
+var  botonDesencriptar  =  documento . querySelector ( "#btn-desencriptar" ) ;
+
+var  botonCopiar  =  documento . querySelector ( "#btn-copia" ) ;
+
+var  inputResultado  =  documento . selector de consulta ( " #msg " ) ;
+
+
+function  cifrar  ( )  {
+    var  mensaje  =  inputMensajeAEncriptar . valor ;
+    var  reemplazo1  =  mensaje . replaceAll ( "e" ,  "enter" ) ;
+    var  reemplazo2  =  reemplazo1 . replaceAll ( "i" ,  "imes" ) ;
+    var  reemplazo3  =  reemplazo2 . reemplazarTodo ( "a" ,  "ai" ) ;
+    var  reemplazo4  =  reemplazo3 . replaceAll ( "u" ,  "ufat" ) ;
+    var  reemplazo5  =  reemplazo4 . reemplazarTodo ( "o" ,  "ober" ) ;
+
+    entradaResultado . valor  =  reemplazo5 ;
+
+}
+
+
+función  desencriptar  ( )  {
+    var  mensaje  =  inputMensajeAEncriptar . valor ;
+    var  reemplazo1  =  mensaje . replaceAll ( "ingresar" ,  "e" ) ;
+    var  reemplazo2  =  reemplazo1 . replaceAll ( "imes" ,  "i" ) ;
+    var  reemplazo3  =  reemplazo2 . reemplazarTodo ( "ai" ,  "a" ) ;
+    var  reemplazo4  =  reemplazo3 . replaceAll ( "ufat" ,  "u" ) ;
+    var  reemplazo5  =  reemplazo4 . reemplazarTodo ( "ober" ,  "o" ) ;
+
+    entradaResultado . valor  =  reemplazo5 ;
+}
+
+
+function  copiarTexto ( ) {
+    var  resultado  =  inputResultado . valor ;
+    navegante _ portapapeles _ escribirTexto ( resultado ) ;
+}
+
+
+botonEncriptar . onclick  =  encriptar ;
+
+botonDesencriptar . onclick  =  desencriptar ;
+
+botónCopiar . onclick  =  copiarTexto ;
+
+
+funcion  SoloLetras ( e )
+{
+clave  =  e . código clave  ||  mi . cual ;
+tecla  =  Cadena . fromCharCode ( clave ) . a la cadena ( ) ;
+letras  =  "abcdefghijklmnopqrstuvwxyz" ;
+
+especiales  =  [ 8 , 13 ] ;
+tecla_especial  =  falso
+for ( var  i  en  especiales )  {
+if ( tecla  ==  especiales [ i ] ) {
+ tecla_especial  =  true ;
+ romper ;
+}
+}
+}
